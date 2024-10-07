@@ -2,6 +2,7 @@
   lib,
   fetchgit,
   rustPlatform,
+  nix-update-script,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "spl";
@@ -13,6 +14,8 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoHash = "sha256-8xv7tXVklJDewnHqoRIMefsNWTD28+5WyV5ZI9imOh0=";
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Simple, concise, concatenative scripting language";
